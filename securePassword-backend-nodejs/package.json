@@ -1,0 +1,16 @@
+{
+  "name": "securepassword",
+  "version": "1.0.0",
+  "description": "backend for chrome extension",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "socket.io": "*",
+    "express": "*",
+    "crypto-js": "*"
+  },
+  "author": "",
+  "license": "ISC"
+}

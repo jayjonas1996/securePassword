@@ -1,0 +1,100 @@
+﻿<html>
+    <head>
+
+       
+        <script type="text/javascript" src="utf8.js"></script>
+        <script type="text/javascript" src="aes.js"></script>
+        <script type="text/javascript" src="myutf8.js"></script>
+
+    </head>
+
+    <script>
+    
+    var str = "®HELLO WORLD";
+//var n = toUTF8Array(str)
+
+
+//console.log(n)
+    
+   // var d = fromUTF8Array(n)
+
+    //console.log(d)
+
+   var t =  _base64ToArrayBuffer("aGVsbG8=")
+   console.log(t)
+
+   var aes = new AES("6Le0DgMTAAAAANokdEEial6Le0DgMTAAAAANokdEEia",{iv:"abcdefghijklmnopqrstuv"})
+   aes.keyExpand()
+   function p()
+{
+  
+    
+    aes.keyExpand()
+    aes.encrypt("it's not coming")// it's coming home")
+    aes.decrypt()
+    var pt = aes.getPlaintext()
+    console.log("plaintext",pt)
+    //aes.testing()
+    
+    //aes.test()
+}   
+function test()
+{
+    aes.testing()
+}
+   //aes.constructor("6Le0DgMTAAAAANokdEEial6Le0DgMTAAAAANokdEEia",{})
+
+   
+
+    function _base64ToArrayBuffer(base64) {
+    var binary_string =  window.atob(base64);
+    var len = binary_string.length;
+    var bytes = new Uint8Array( len );
+    for (var i = 0; i < len; i++)        {
+        bytes[i] = binary_string.charCodeAt(i);
+    }
+    return bytes//.buffer;
+}
+    
+    
+    /*
+    var message = "some_secret_message";
+
+var key = "6Le0DgMTAAAAANokdEEial"; //length=22
+var iv  = "mHGFxENnZLbienLyANoi.e"; //length=22
+
+var key2 = "000102030405060708090a0b0c0d0e0f"  //length = 32
+var iv2 =  "101112131415161718191a1b1c1d1e1f"  //length = 32
+
+key = CryptoJS.enc.Base64.parse(key); // length=16 bytes
+//key is now e8b7b40e031300000000da247441226a5d, length=32 (hex encoded)
+iv = CryptoJS.enc.Base64.parse(iv); // length=16 bytes
+//iv is now 987185c4436764b6e27a72f2fffffffd, length=32 (hex encoded)
+console.log(key)
+
+key2 = CryptoJS.enc.Hex.parse(key2)
+iv2 = CryptoJS.enc.Hex.parse(iv2)
+
+console.log(key2)
+console.log(iv2.toString())
+
+var cipherData = CryptoJS.AES.encrypt(message, key, { iv: iv });
+
+console.log(cipherData.toString());
+///console.log(CryptoJS.enc.Base64.parse(cipherData.toString()))
+
+//var temp = cipherData.toString()
+//console.log(temp)
+
+
+
+
+var data = CryptoJS.AES.decrypt(cipherData, key, { iv: iv });
+console.log(data.toString(CryptoJS.enc.Utf8))
+*/
+</script>
+<body>
+    <button onclick="p()">expand</button><br>
+    <button onclick="test()">TEST</button>
+</body>
+</html>

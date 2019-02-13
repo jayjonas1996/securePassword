@@ -1,0 +1,26 @@
+{
+    "manifest_version":2,
+    "name":"Secure password auto filler",
+    "description":"use the android/Ios app to securely auto complete password fill",
+    "version":"0.1",
+    "icons":{"128":"logo.png"},
+    "content_scripts":[
+        {
+            "matches":[
+                "<all_urls>"
+            ],
+            "js":["content.js"]
+        }
+    ],
+    "background":{
+        "js":["background.js"]
+    },
+    "browser_action":{
+        "default_title":"Password autofill",
+        
+        "default_popup":"popup.html"
+    },
+    "permissions":["activeTab"],
+    "content_security_policy":"script-src 'self' http://127.0.0.1:3000; object-src 'self'"
+    
+}
